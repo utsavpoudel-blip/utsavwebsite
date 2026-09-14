@@ -1737,75 +1737,6 @@ footer {
 
 }
 
-
-/* =========================================================
-   DAILY MCQs
-========================================================= */
-
-.mcq-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-}
-
-.mcq-card {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(9,57,69,.06);
-}
-
-.mcq-card h3 {
-    color: var(--navy);
-    font-size: 17px;
-    margin-bottom: 15px;
-}
-
-.mcq-option {
-    display: block;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin: 8px 0;
-    color: var(--muted);
-    cursor: pointer;
-}
-
-.mcq-option:hover {
-    border-color: var(--teal);
-    background: var(--light-teal);
-}
-
-.mcq-option input {
-    margin-right: 8px;
-}
-
-.mcq-editor-field {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 15px;
-}
-
-.mcq-editor-field input,
-.mcq-editor-field textarea,
-.mcq-editor-field select {
-    width: 100%;
-    padding: 10px;
-    margin: 6px 0 10px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-@media(max-width:800px) {
-
-    .mcq-list {
-        grid-template-columns: 1fr;
-    }
-
-}
-
 </style>
 </head>
 
@@ -1842,7 +1773,7 @@ footer {
         <div class="intro-subtitle">
             Medical Education • CEE Mentorship • Life Beyond MBBS
             <br><br>
-            As a dreamer, I dream of more to come. I’ll keep trying to bring positive change
+            As a dreamer, I dream of more to come. I'll keep trying to bring positive change
             in the medical field and inspire aspiring students to pursue their dreams.
         </div>
 
@@ -1885,8 +1816,6 @@ footer {
             <a href="#life">Life Beyond MBBS</a>
 
             <a href="#ask">Ask Utsav</a>
-
-            <a href="#mcqs">Daily MCQs</a>
 
             <a href="#collaborations">Collaborate</a>
 
@@ -2061,8 +1990,8 @@ footer {
                 </p>
 
                 <div class="quote">
-                    “The dream remained the same. Only the distance between
-                    the dream and reality changed.”
+                    "The dream remained the same. Only the distance between
+                    the dream and reality changed."
                 </div>
 
             </div>
@@ -2798,7 +2727,7 @@ footer {
             </div>
 
 
-            <a
+            
                 href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20I%20would%20like%20to%20know%20more%20about%20CEE%20mentorship."
                 target="_blank"
                 class="btn btn-primary"
@@ -3087,7 +3016,7 @@ footer {
                     photos, travel and everyday moments.
                 </p>
 
-                <a
+                
                     href="https://www.instagram.com/utsav_pdl_3/"
                     target="_blank"
                     class="btn btn-primary"
@@ -3115,7 +3044,7 @@ footer {
                     MBBS life and educational content.
                 </p>
 
-                <a
+                
                     href="https://youtube.com/@utsavpoudel_medico?si=5vAmOZDlvbTPe_l9"
                     target="_blank"
                     class="btn btn-primary"
@@ -3143,7 +3072,7 @@ footer {
                     educational posts and announcements.
                 </p>
 
-                <a
+                
                     href="https://www.facebook.com/share/1cVG7G4YAY/?mibextid=wwXIfr"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -3172,7 +3101,7 @@ footer {
                     professional updates and opportunities.
                 </p>
 
-                <a
+                
                     href="https://www.linkedin.com/in/utsav-poudel-067278351"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -3201,7 +3130,7 @@ footer {
                     medical education and student-life content.
                 </p>
 
-                <a
+                
                     href="https://www.tiktok.com/@utsav_poudel_medico"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -3212,77 +3141,6 @@ footer {
 
             </div>
 
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DAILY MCQs
-===================================================== -->
-
-<section class="medical-bg" id="mcqs" style="background:#ffffff;">
-
-    <div class="section-container">
-
-        <div class="section-heading center">
-
-            <div class="section-tag">
-                Daily Practice
-            </div>
-
-            <h2>
-                Daily MCQs
-            </h2>
-
-        </div>
-
-        <div id="mcqList" class="mcq-list"></div>
-
-        <div style="text-align:center;margin-top:25px;">
-
-            <button
-                class="btn btn-primary"
-                onclick="checkDailyMCQs()"
-            >
-                Check Answers
-            </button>
-
-            <button
-                class="btn btn-outline"
-                onclick="toggleMCQEditor()"
-            >
-                Edit Today's MCQs
-            </button>
-
-        </div>
-
-        <div
-            id="mcqResult"
-            style="text-align:center;margin-top:20px;color:var(--teal);font-weight:700;"
-        ></div>
-
-        <div
-            id="mcqEditor"
-            style="display:none;margin:35px auto 0;max-width:900px;background:white;border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:var(--shadow);"
-        >
-
-            <h3 style="color:var(--navy);margin-bottom:10px;">
-                Update Today's MCQs
-            </h3>
-
-            <div id="editorFields"></div>
-
-            <button
-                class="btn btn-primary"
-                onclick="saveMCQs()"
-            >
-                Save MCQs
-            </button>
 
         </div>
 
@@ -3326,7 +3184,7 @@ footer {
             </p>
 
             <p style="color:var(--muted);margin-bottom:15px;">
-                I’m open to paid promotions, brand partnerships, sponsored
+                I'm open to paid promotions, brand partnerships, sponsored
                 content, and relevant collaborations that align with my
                 audience and values.
             </p>
@@ -3376,7 +3234,7 @@ footer {
                 </p>
 
                 <p style="margin-top:18px;">
-                    I’m always open to meaningful collaborations that provide
+                    I'm always open to meaningful collaborations that provide
                     genuine value to students and the wider community.
                     For business inquiries, paid promotions, collaborations,
                     sponsorships, media inquiries and professional opportunities,
@@ -3390,7 +3248,7 @@ footer {
 
                     <br>
 
-                    <a
+                    
                         href="mailto:helputsavpoudel64@gmail.com"
                         style="color:var(--teal);"
                     >
@@ -3411,7 +3269,7 @@ footer {
             <div class="contact-options">
 
 
-                <a
+                
                     class="contact-button"
                     href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20can%20you%20help%20me%20prepare%20for%20CEE%3F"
                     target="_blank"
@@ -3426,7 +3284,7 @@ footer {
                 </a>
 
 
-                <a
+                
                     class="contact-button"
                     href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20I%20have%20a%20question%20about%20MBBS."
                     target="_blank"
@@ -3441,7 +3299,7 @@ footer {
                 </a>
 
 
-                <a
+                
                     class="contact-button"
                     href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20I%20want%20to%20know%20about%20your%20scholarship%20journey."
                     target="_blank"
@@ -3456,7 +3314,7 @@ footer {
                 </a>
 
 
-                <a
+                
                     class="contact-button"
                     href="mailto:helputsavpoudel64@gmail.com"
                 >
@@ -3528,29 +3386,25 @@ footer {
                 Instagram
             </a>
 
-            <a href="#mcqs">
-                Daily MCQs
-            </a>
-
             <a href="#collaborations">
                 Collaborate
             </a>
 
-            <a
+            
                 href="https://www.facebook.com/share/1cVG7G4YAY/?mibextid=wwXIfr"
                 target="_blank"
             >
                 Facebook
             </a>
 
-            <a
+            
                 href="https://www.linkedin.com/in/utsav-poudel-067278351"
                 target="_blank"
             >
                 LinkedIn
             </a>
 
-            <a
+            
                 href="https://www.tiktok.com/@utsav_poudel_medico"
                 target="_blank"
             >
@@ -3735,202 +3589,6 @@ function sendQuestion() {
 
 }
 
-
-
-/* =========================================================
-   DAILY MCQs
-========================================================= */
-
-const defaultMCQs = [
-    {
-        q: "Which organelle is known as the powerhouse of the cell?",
-        options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
-        answer: 1
-    },
-    {
-        q: "What is the approximate normal pH of human blood?",
-        options: ["5.5", "6.5", "7.4", "8.5"],
-        answer: 2
-    },
-    {
-        q: "Which vitamin is mainly produced in the skin after sunlight exposure?",
-        options: ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
-        answer: 3
-    },
-    {
-        q: "Which blood cells primarily fight infections?",
-        options: ["Red blood cells", "White blood cells", "Platelets", "Plasma"],
-        answer: 1
-    },
-    {
-        q: "Which molecule carries genetic information in most living organisms?",
-        options: ["ATP", "Protein", "DNA", "Glucose"],
-        answer: 2
-    }
-];
-
-let dailyMCQs =
-    JSON.parse(localStorage.getItem("utsavDailyMCQs")) || defaultMCQs;
-
-
-function renderMCQs() {
-
-    const list = document.getElementById("mcqList");
-
-    list.innerHTML = dailyMCQs.map((item, i) => `
-
-        <div class="mcq-card">
-
-            <h3>
-                ${i + 1}. ${item.q}
-            </h3>
-
-            ${item.options.map((op, j) => `
-
-                <label class="mcq-option">
-
-                    <input
-                        type="radio"
-                        name="dailyq${i}"
-                        value="${j}"
-                    >
-
-                    ${String.fromCharCode(65 + j)}. ${op}
-
-                </label>
-
-            `).join("")}
-
-        </div>
-
-    `).join("");
-}
-
-
-function checkDailyMCQs() {
-
-    let score = 0;
-
-    dailyMCQs.forEach((item, i) => {
-
-        const selected =
-            document.querySelector(
-                `input[name="dailyq${i}"]:checked`
-            );
-
-        if (
-            selected &&
-            Number(selected.value) === item.answer
-        ) {
-            score++;
-        }
-
-    });
-
-    document.getElementById("mcqResult").textContent =
-        `You scored ${score}/${dailyMCQs.length}.`;
-}
-
-
-function toggleMCQEditor() {
-
-    const editor = document.getElementById("mcqEditor");
-
-    editor.style.display =
-        editor.style.display === "none"
-        ? "block"
-        : "none";
-
-    if (editor.style.display === "block") {
-        renderEditor();
-    }
-}
-
-
-function renderEditor() {
-
-    document.getElementById("editorFields").innerHTML =
-        dailyMCQs.map((item, i) => `
-
-            <div class="mcq-editor-field">
-
-                <strong>
-                    Question ${i + 1}
-                </strong>
-
-                <textarea
-                    id="editq${i}"
-                    rows="2"
-                >${item.q}</textarea>
-
-                ${item.options.map((op, j) => `
-
-                    <input
-                        id="edito${i}_${j}"
-                        value="${op.replace(/"/g, '&quot;')}"
-                    >
-
-                `).join("")}
-
-                <select id="edita${i}">
-
-                    ${item.options.map((op, j) => `
-
-                        <option
-                            value="${j}"
-                            ${j === item.answer ? "selected" : ""}
-                        >
-                            Correct answer:
-                            ${String.fromCharCode(65 + j)}
-                        </option>
-
-                    `).join("")}
-
-                </select>
-
-            </div>
-
-        `).join("");
-}
-
-
-function saveMCQs() {
-
-    dailyMCQs = dailyMCQs.map((item, i) => ({
-
-        q:
-            document.getElementById(`editq${i}`).value,
-
-        options:
-            item.options.map((_, j) =>
-                document.getElementById(`edito${i}_${j}`).value
-            ),
-
-        answer:
-            Number(
-                document.getElementById(`edita${i}`).value
-            )
-
-    }));
-
-    localStorage.setItem(
-        "utsavDailyMCQs",
-        JSON.stringify(dailyMCQs)
-    );
-
-    renderMCQs();
-
-    document.getElementById("mcqEditor").style.display =
-        "none";
-
-    document.getElementById("mcqResult").textContent =
-        "Today's MCQs saved on this browser.";
-}
-
-
-/* Render MCQs when page loads */
-
-renderMCQs();
 
 </script>
 
