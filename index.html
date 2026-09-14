@@ -1,0 +1,3939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Utsav Poudel | MBBS Student & Medical Creator</title>
+
+<meta name="description"
+content="Utsav Poudel — 2nd Year MBBS Student, Medical Education Content Creator and CEE Mentor.">
+
+<style>
+
+/* =========================================================
+   BASIC RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #18343b;
+    background: #f7fbfc;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root {
+    --navy: #0b3542;
+    --dark: #062932;
+    --teal: #159393;
+    --light-teal: #e1f5f4;
+    --blue: #256d8b;
+    --white: #ffffff;
+    --text: #18343b;
+    --muted: #687c82;
+    --border: #dcebed;
+    --cream: #f7fbfc;
+    --shadow: 0 18px 50px rgba(9, 57, 69, 0.10);
+}
+
+
+/* =========================================================
+   STETHOSCOPE BACKGROUND
+========================================================= */
+
+.medical-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.medical-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%23159393' stroke-width='3' opacity='.13'%3E%3Cpath d='M55 55v70c0 40 32 70 70 70s70-30 70-70V55'/%3E%3Ccircle cx='55' cy='47' r='11'/%3E%3Ccircle cx='195' cy='47' r='11'/%3E%3Cpath d='M45 47h20M185 47h20'/%3E%3Cpath d='M125 195v17c0 24 19 43 43 43h9'/%3E%3Ccircle cx='195' cy='255' r='18'/%3E%3Cpath d='M195 237v36'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-size: 300px 300px;
+    opacity: .55;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.medical-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 15px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.logo span {
+    color: var(--teal);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--teal);
+}
+
+.nav-contact {
+    background: var(--teal);
+    color: white !important;
+
+    padding: 9px 17px;
+    border-radius: 25px;
+}
+
+.menu-button {
+    display: none;
+
+    background: none;
+    border: none;
+
+    font-size: 27px;
+    color: var(--navy);
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ANIMATED INTRO
+========================================================= */
+
+.intro {
+    height: 100vh;
+    min-height: 650px;
+
+    background:
+        radial-gradient(circle at 50% 45%, #e4f8f7 0%, transparent 35%),
+        linear-gradient(135deg, #f8fcfc, #eaf7f7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 3;
+}
+
+.intro-small {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--teal);
+    font-weight: 700;
+
+    opacity: 0;
+    animation: fadeUp 1s .3s forwards;
+}
+
+.intro-name {
+    font-size: clamp(55px, 10vw, 120px);
+
+    line-height: .95;
+
+    color: var(--dark);
+
+    letter-spacing: -4px;
+
+    margin: 20px 0;
+
+    opacity: 0;
+
+    animation:
+        nameAppear 1.4s .7s forwards,
+        nameGlow 3s 2s infinite alternate;
+}
+
+.intro-name span {
+    color: var(--teal);
+}
+
+.intro-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--blue);
+
+    opacity: 0;
+
+    animation: fadeUp 1s 1.3s forwards;
+}
+
+.intro-line {
+    width: 90px;
+    height: 3px;
+
+    background: var(--teal);
+
+    margin: 25px auto;
+
+    border-radius: 10px;
+
+    transform: scaleX(0);
+
+    animation: lineGrow 1s 1.7s forwards;
+}
+
+.intro-subtitle {
+    color: var(--muted);
+
+    opacity: 0;
+
+    animation: fadeUp 1s 2s forwards;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: var(--teal);
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    animation: bounce 2s infinite;
+}
+
+
+/* FLOATING STETHOSCOPES */
+
+.steth {
+    position: absolute;
+
+    color: var(--teal);
+
+    opacity: .08;
+
+    font-size: 130px;
+
+    animation: float 7s ease-in-out infinite;
+}
+
+.steth-one {
+    top: 12%;
+    left: 8%;
+}
+
+.steth-two {
+    bottom: 10%;
+    right: 8%;
+
+    font-size: 170px;
+
+    animation-delay: 2s;
+}
+
+.steth-three {
+    top: 25%;
+    right: 18%;
+
+    font-size: 70px;
+
+    animation-delay: 4s;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 90vh;
+
+    padding: 130px 7% 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr .9fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    background: white;
+}
+
+.hero-label {
+    display: inline-block;
+
+    background: var(--light-teal);
+    color: var(--teal);
+
+    padding: 7px 15px;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 75px);
+
+    line-height: 1;
+
+    color: var(--dark);
+
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--teal);
+}
+
+.hero-role {
+    color: var(--blue);
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--muted);
+
+    max-width: 650px;
+
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 13px 22px;
+
+    border-radius: 30px;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--teal);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(21,147,147,.25);
+}
+
+.btn-outline {
+    border: 1px solid var(--teal);
+
+    color: var(--teal);
+}
+
+.btn-outline:hover {
+    background: var(--light-teal);
+}
+
+
+/* =========================================================
+   WHITE COAT
+========================================================= */
+
+.white-coat {
+    background: #f3fafb;
+}
+
+.white-coat-grid {
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 65px;
+
+    align-items: center;
+}
+
+.white-coat-photo {
+    background: white;
+
+    padding: 12px;
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+    transform: rotate(-2deg);
+}
+
+.white-coat-photo img {
+    width: 100%;
+
+    height: 600px;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    border-radius: 20px;
+}
+
+.white-coat-text h2 {
+    font-size: clamp(35px, 5vw, 55px);
+
+    line-height: 1.1;
+
+    color: var(--dark);
+
+    margin-bottom: 20px;
+}
+
+.white-coat-text p {
+    color: var(--muted);
+
+    margin-bottom: 16px;
+}
+
+.quote {
+    margin-top: 25px;
+
+    border-left: 4px solid var(--teal);
+
+    background: var(--light-teal);
+
+    padding: 20px 23px;
+
+    border-radius: 0 15px 15px 0;
+
+    color: var(--navy);
+
+    font-weight: 700;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    max-width: 1100px;
+
+    margin: -45px auto 50px;
+
+    position: relative;
+
+    z-index: 5;
+
+    background: white;
+
+    border-radius: 25px;
+
+    box-shadow: var(--shadow);
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+}
+
+.stat {
+    text-align: center;
+
+    padding: 12px;
+
+    border-right: 1px solid var(--border);
+}
+
+.stat:last-child {
+    border: none;
+}
+
+.stat-number {
+    color: var(--teal);
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+.stat-label {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section {
+    padding: 100px 7%;
+}
+
+.section-container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section-heading {
+    max-width: 720px;
+    margin-bottom: 50px;
+}
+
+.section-heading.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-tag {
+    color: var(--teal);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: clamp(34px, 5vw, 53px);
+
+    line-height: 1.1;
+
+    color: var(--dark);
+
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    background: white;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 22px;
+}
+
+.info-card {
+    background: #fbfefe;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+.info-icon {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    color: var(--navy);
+
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PREPARE SMARTER
+========================================================= */
+
+.prepare {
+    background: #eaf7f7;
+}
+
+.accordion {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.accordion-item {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    margin-bottom: 12px;
+
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+
+    border: none;
+
+    background: white;
+
+    padding: 21px 24px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    color: var(--navy);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-align: left;
+}
+
+.accordion-header:hover {
+    color: var(--teal);
+}
+
+.accordion-icon {
+    font-size: 22px;
+
+    color: var(--teal);
+}
+
+.accordion-content {
+    display: none;
+
+    padding: 0 25px 23px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+.accordion-content ul {
+    padding-left: 20px;
+
+    margin-top: 10px;
+}
+
+.accordion-content li {
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   HEALTH CAMP
+========================================================= */
+
+.health-camp {
+    background: white;
+}
+
+.camp-intro {
+    max-width: 750px;
+
+    margin-bottom: 45px;
+}
+
+.camp-intro p {
+    color: var(--muted);
+}
+
+.camp-gallery {
+    display: grid;
+
+    grid-template-columns: 1.2fr .9fr .9fr;
+
+    gap: 18px;
+}
+
+.camp-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #eef8f8;
+
+    box-shadow: 0 12px 35px rgba(10,60,70,.08);
+}
+
+.camp-card:first-child {
+    min-height: 510px;
+}
+
+.camp-card:not(:first-child) {
+    min-height: 390px;
+}
+
+.camp-card img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 390px;
+
+    object-fit: cover;
+
+    transition: .5s;
+}
+
+.camp-card:hover img {
+    transform: scale(1.05);
+}
+
+.camp-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,30,35,.78)
+        );
+
+    color: white;
+}
+
+.camp-overlay h3 {
+    font-size: 20px;
+
+    margin-bottom: 3px;
+}
+
+.camp-overlay p {
+    font-size: 13px;
+
+    color: #e2f3f3;
+}
+
+
+/* =========================================================
+   JOURNEY TIMELINE
+========================================================= */
+
+.timeline-section {
+    background: #f3fafb;
+}
+
+.timeline {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: #b8dede;
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 58px;
+
+    margin-bottom: 42px;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 7px;
+    top: 4px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: var(--teal);
+
+    border: 5px solid #d8f1ef;
+}
+
+.timeline-year {
+    color: var(--teal);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.timeline-item h3 {
+    color: var(--navy);
+
+    margin: 4px 0;
+}
+
+.timeline-item p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACHIEVEMENT
+========================================================= */
+
+.achievement {
+    background: var(--dark);
+
+    color: white;
+}
+
+.achievement-grid {
+    display: grid;
+
+    grid-template-columns: 1fr .8fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.achievement h2 {
+    font-size: clamp(37px,5vw,57px);
+
+    line-height: 1.08;
+
+    margin-bottom: 20px;
+}
+
+.achievement p {
+    color: #c8dfe3;
+
+    margin-bottom: 15px;
+}
+
+.rank-boxes {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.rank-box {
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    padding: 20px 25px;
+
+    border-radius: 18px;
+}
+
+.rank-number {
+    color: #66d6cf;
+
+    font-size: 35px;
+
+    font-weight: 800;
+}
+
+.rank-label {
+    color: #c8dfe3;
+
+    font-size: 13px;
+}
+
+.achievement-photo {
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 25px;
+
+    transform: rotate(2deg);
+}
+
+.achievement-photo img {
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    border-radius: 17px;
+}
+
+
+/* =========================================================
+   MEDRACE
+========================================================= */
+
+.medrace {
+    background: white;
+}
+
+.medrace-card {
+    background: linear-gradient(135deg,#edf9f8,#ffffff);
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    padding: 45px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 40px;
+
+    align-items: center;
+
+    box-shadow: var(--shadow);
+}
+
+.medrace-card h2 {
+    color: var(--navy);
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+.medrace-card p {
+    color: var(--muted);
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   LIFE BEYOND MBBS
+   8 PHOTO GALLERY
+========================================================= */
+
+.life {
+    background: #eaf7f7;
+}
+
+.life-heading {
+    max-width: 720px;
+
+    margin-bottom: 45px;
+}
+
+.life-heading p {
+    color: var(--muted);
+}
+
+
+/* Main gallery */
+
+.travel-gallery {
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: 18px;
+}
+
+
+/* Every photo */
+
+.travel-card {
+    background: white;
+
+    padding: 8px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 12px 35px rgba(10,60,70,.08);
+
+    overflow: hidden;
+
+    transition: .3s;
+}
+
+
+/* First 4 photos - large */
+
+.travel-card:nth-child(1),
+.travel-card:nth-child(2),
+.travel-card:nth-child(3),
+.travel-card:nth-child(4) {
+    grid-column: span 3;
+}
+
+
+/* Bottom 4 photos */
+
+.travel-card:nth-child(5),
+.travel-card:nth-child(6),
+.travel-card:nth-child(7),
+.travel-card:nth-child(8) {
+    grid-column: span 3;
+}
+
+
+.travel-card img {
+    width: 100%;
+
+    height: 360px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    transition: .5s;
+}
+
+
+.travel-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 18px 40px rgba(10,60,70,.14);
+}
+
+.travel-card:hover img {
+    transform: scale(1.04);
+}
+
+
+/* Special slightly taller photos */
+
+.travel-card:nth-child(2) img,
+.travel-card:nth-child(6) img {
+    height: 430px;
+}
+
+
+.life-note {
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DAILY CONTENT / ASK UTSAV
+========================================================= */
+
+.ask {
+    background: white;
+}
+
+.ask-box {
+    max-width: 850px;
+
+    margin: auto;
+
+    background: linear-gradient(135deg,#f0faf9,#ffffff);
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    padding: 45px;
+
+    box-shadow: var(--shadow);
+}
+
+.question-categories {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 25px 0;
+}
+
+.category {
+    border: 1px solid #bcdedd;
+
+    background: white;
+
+    color: var(--teal);
+
+    padding: 9px 15px;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.category:hover,
+.category.selected {
+    background: var(--teal);
+
+    color: white;
+
+    border-color: var(--teal);
+}
+
+.question-input {
+    width: 100%;
+
+    min-height: 140px;
+
+    resize: vertical;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 17px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: var(--text);
+
+    background: white;
+}
+
+.question-input:focus {
+    border-color: var(--teal);
+
+    box-shadow: 0 0 0 3px rgba(21,147,147,.08);
+}
+
+.send-question {
+    margin-top: 15px;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   YOUTUBE + INSTAGRAM
+========================================================= */
+
+.socials {
+    background: #f3fafb;
+}
+
+.social-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.social-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(10,60,70,.06);
+}
+
+.social-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.social-card h3 {
+    color: var(--navy);
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.social-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    background: white;
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 55px;
+
+    align-items: center;
+}
+
+.contact-text h2 {
+    font-size: clamp(37px,5vw,55px);
+
+    line-height: 1.1;
+
+    color: var(--dark);
+
+    margin-bottom: 15px;
+}
+
+.contact-text p {
+    color: var(--muted);
+}
+
+.contact-options {
+    display: grid;
+
+    gap: 12px;
+}
+
+.contact-button {
+    background: #f7fbfc;
+
+    border: 1px solid var(--border);
+
+    padding: 17px 20px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--navy);
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.contact-button:hover {
+    transform: translateX(5px);
+
+    border-color: var(--teal);
+
+    box-shadow: var(--shadow);
+}
+
+.contact-icon {
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #062832;
+
+    color: #c7dce0;
+
+    padding: 40px 7%;
+}
+
+.footer-container {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+.footer-logo span {
+    color: #65d4cc;
+}
+
+.footer-small {
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+.footer-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes nameAppear {
+
+    0% {
+        opacity: 0;
+        transform: translateY(45px) scale(.92);
+        letter-spacing: 15px;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        letter-spacing: -4px;
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes lineGrow {
+
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+
+}
+
+@keyframes nameGlow {
+
+    from {
+        text-shadow: 0 0 0 rgba(21,147,147,0);
+    }
+
+    to {
+        text-shadow: 0 8px 40px rgba(21,147,147,.15);
+    }
+
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+
+}
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translate(-50%,0);
+    }
+
+    50% {
+        transform: translate(-50%,10px);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px) {
+
+    .nav-links {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        background: white;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 20px 25px;
+
+        box-shadow: 0 15px 30px rgba(0,0,0,.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 9px 0;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .hero,
+    .white-coat-grid,
+    .achievement-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 110px;
+    }
+
+    .stats {
+        margin: 25px 20px;
+    }
+
+    .camp-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .camp-card:first-child {
+        grid-column: span 2;
+    }
+
+
+    /* LIFE GALLERY - TABLET */
+
+    .travel-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .travel-card,
+    .travel-card:nth-child(1),
+    .travel-card:nth-child(2),
+    .travel-card:nth-child(3),
+    .travel-card:nth-child(4),
+    .travel-card:nth-child(5),
+    .travel-card:nth-child(6),
+    .travel-card:nth-child(7),
+    .travel-card:nth-child(8) {
+        grid-column: auto;
+    }
+
+    .travel-card img,
+    .travel-card:nth-child(2) img,
+    .travel-card:nth-child(6) img {
+        height: 380px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media(max-width:650px) {
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .intro-name {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat {
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .stat:nth-child(3),
+    .stat:nth-child(4) {
+        border-bottom: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .white-coat-photo img {
+        height: 500px;
+    }
+
+    .camp-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .camp-card:first-child {
+        grid-column: auto;
+    }
+
+    .camp-card,
+    .camp-card:first-child {
+        min-height: 420px;
+    }
+
+
+    /* LIFE GALLERY - MOBILE */
+
+    .travel-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .travel-card,
+    .travel-card:nth-child(1),
+    .travel-card:nth-child(2),
+    .travel-card:nth-child(3),
+    .travel-card:nth-child(4),
+    .travel-card:nth-child(5),
+    .travel-card:nth-child(6),
+    .travel-card:nth-child(7),
+    .travel-card:nth-child(8) {
+        grid-column: auto;
+    }
+
+    .travel-card img,
+    .travel-card:nth-child(2) img,
+    .travel-card:nth-child(6) img {
+        height: 420px;
+    }
+
+
+    .rank-boxes {
+        flex-direction: column;
+    }
+
+    .medrace-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .ask-box {
+        padding: 25px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   DAILY MCQs
+========================================================= */
+
+.mcq-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.mcq-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(9,57,69,.06);
+}
+
+.mcq-card h3 {
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.mcq-option {
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin: 8px 0;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.mcq-option:hover {
+    border-color: var(--teal);
+    background: var(--light-teal);
+}
+
+.mcq-option input {
+    margin-right: 8px;
+}
+
+.mcq-editor-field {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.mcq-editor-field input,
+.mcq-editor-field textarea,
+.mcq-editor-field select {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+@media(max-width:800px) {
+
+    .mcq-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ANIMATED INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="steth steth-one">🩺</div>
+    <div class="steth steth-two">🩺</div>
+    <div class="steth steth-three">🩺</div>
+
+    <div class="intro-content">
+
+        <div class="intro-small">
+            WELCOME TO MY SPACE
+        </div>
+
+        <h1 class="intro-name">
+            Utsav <span>Poudel</span>
+        </h1>
+
+        <div class="intro-title">
+            2nd Year MBBS Student
+        </div>
+
+        <div class="intro-line"></div>
+
+        <div class="intro-subtitle">
+            Medical Education • CEE Mentorship • Life Beyond MBBS
+            <br><br>
+            As a dreamer, I dream of more to come. I’ll keep trying to bring positive change
+            in the medical field and inspire aspiring students to pursue their dreams.
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        SCROLL TO EXPLORE ↓
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            Utsav<span>.</span>
+        </a>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+
+            <a href="#story">My Story</a>
+
+            <a href="#prepare">CEE</a>
+
+            <a href="#camp">Health Camp</a>
+
+            <a href="#life">Life Beyond MBBS</a>
+
+            <a href="#ask">Ask Utsav</a>
+
+            <a href="#mcqs">Daily MCQs</a>
+
+            <a href="#collaborations">Collaborate</a>
+
+            <a href="#contact" class="nav-contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero medical-bg" id="home">
+
+    <div>
+
+        <div class="hero-label">
+            2nd Year MBBS Student
+        </div>
+
+        <h1>
+            Medicine is<br>
+            <span>the journey.</span>
+        </h1>
+
+        <div class="hero-role">
+            Medical Education Creator • CEE Mentor
+        </div>
+
+        <p>
+            I am Utsav Poudel — an MBBS student from Nepal,
+            medical education content creator and mentor for
+            students preparing for their own medical journey.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#story" class="btn btn-primary">
+                My Story
+            </a>
+
+            <a href="#ask" class="btn btn-outline">
+                Ask Me Something
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <div class="stat-number">
+            106
+        </div>
+
+        <div class="stat-label">
+            CEE 2025 MBBS Rank
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            09
+        </div>
+
+        <div class="stat-label">
+            CEE 2025 BDS Rank
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            1st
+        </div>
+
+        <div class="stat-label">
+            Attempt
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            2nd
+        </div>
+
+        <div class="stat-label">
+            Year MBBS
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHITE COAT — ONLY ONE PHOTO
+===================================================== -->
+
+<section class="white-coat medical-bg" id="story">
+
+    <div class="section-container">
+
+        <div class="white-coat-grid">
+
+            <div class="white-coat-photo">
+
+                <img
+                    src="white-coat.jpg"
+                    alt="Utsav Poudel wearing a white coat"
+                >
+
+            </div>
+
+
+            <div class="white-coat-text">
+
+                <div class="section-tag">
+                    The Story Behind The White Coat
+                </div>
+
+                <h2>
+                    A childhood dream that never changed.
+                </h2>
+
+                <p>
+                    Utsav Poudel was born in Pokhara, Nepal, at what is now
+                    Pokhara Academy of Health Sciences, formerly Gandaki Hospital.
+                </p>
+
+                <p>
+                    As a child, he was frequently unwell with cough, fever
+                    and recurring illnesses. His parents often took him to
+                    hospitals in Pokhara.
+                </p>
+
+                <p>
+                    Watching doctors care for him and help him recover
+                    gradually shaped the way he saw medicine.
+                </p>
+
+                <p>
+                    The dream of becoming a doctor stayed with him through
+                    changing schools, academic challenges and years of
+                    preparation.
+                </p>
+
+                <div class="quote">
+                    “The dream remained the same. Only the distance between
+                    the dream and reality changed.”
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about medical-bg">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="section-tag">
+                Who I Am
+            </div>
+
+            <h2>
+                More than just an MBBS student.
+            </h2>
+
+            <p>
+                Medicine is an important part of my life, but my journey
+                also includes education, content creation, mentorship,
+                travel and the experiences that shape me outside the classroom.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🩺
+                </div>
+
+                <h3>
+                    MBBS Student
+                </h3>
+
+                <p>
+                    Currently in my second year of MBBS, continuing to learn
+                    about the human body, disease, diagnosis, treatment and
+                    the responsibilities of becoming a doctor.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📚
+                </div>
+
+                <h3>
+                    CEE Mentor
+                </h3>
+
+                <p>
+                    Sharing practical lessons from my own CEE preparation,
+                    especially for students trying to prepare without
+                    depending completely on conventional coaching.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🎥
+                </div>
+
+                <h3>
+                    Content Creator
+                </h3>
+
+                <p>
+                    Creating content around CEE, NEB, study strategies,
+                    medical student life and the experiences that come
+                    with pursuing medicine.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PREPARE SMARTER
+===================================================== -->
+
+<section class="prepare medical-bg" id="prepare">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-tag">
+                CEE Preparation
+            </div>
+
+            <h2>
+                Prepare Smarter.
+            </h2>
+
+            <p>
+                What to study matters. But knowing how to study,
+                revise and analyze your mistakes matters too.
+            </p>
+
+        </div>
+
+
+        <div class="accordion">
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        🗺️ Build Your CEE Roadmap
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Understand the syllabus first, then divide your
+                        preparation into learning, revision and testing.
+                    </p>
+
+                    <ul>
+                        <li>Understand the complete syllabus.</li>
+                        <li>Identify strong and weak areas.</li>
+                        <li>Create realistic daily targets.</li>
+                        <li>Keep regular revision cycles.</li>
+                        <li>Use mock tests to measure progress.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        🧬 Biology
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Build strong concepts, revise repeatedly and
+                        practice MCQs after completing chapters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        ⚗️ Chemistry
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Balance conceptual understanding, reactions,
+                        formulas and numerical problem solving.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        ⚛️ Physics
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Understand the meaning behind formulas and
+                        practice calculations regularly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        🔄 Study & Revision Strategy
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Use active recall, short revision notes and
+                        repeated revision of difficult topics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        📝 Mock Tests & Exam Strategy
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Don't only check your score. Analyze every mistake,
+                        identify patterns and use them to improve.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <button class="accordion-header">
+
+                    <span>
+                        📄 Forms, Admission & Documentation
+                    </span>
+
+                    <span class="accordion-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="accordion-content">
+
+                    <p>
+                        Entrance preparation also includes understanding
+                        forms, notices, documents, deadlines and admission
+                        procedures.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HEALTH CAMP
+===================================================== -->
+
+<section class="health-camp medical-bg" id="camp">
+
+    <div class="section-container">
+
+        <div class="camp-intro">
+
+            <div class="section-tag">
+                Beyond The Classroom
+            </div>
+
+            <h2 class="section-heading" style="margin-bottom:15px;">
+                Learning medicine through real experiences.
+            </h2>
+
+            <p>
+                Medical education isn't limited to lectures, books and
+                examinations. Experiences outside the classroom provide
+                opportunities to understand people, communities and the
+                human side of healthcare.
+            </p>
+
+        </div>
+
+
+        <div class="camp-gallery">
+
+
+            <div class="camp-card">
+
+                <img
+                    src="camp-1.jpg"
+                    alt="Utsav Poudel during a health camp"
+                >
+
+                <div class="camp-overlay">
+
+                    <h3>
+                        Health Camp
+                    </h3>
+
+                    <p>
+                        Learning beyond the classroom.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="camp-card">
+
+                <img
+                    src="camp-2.jpg"
+                    alt="Utsav Poudel at health camp"
+                >
+
+                <div class="camp-overlay">
+
+                    <h3>
+                        Real People
+                    </h3>
+
+                    <p>
+                        Real experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="camp-card">
+
+                <img
+                    src="camp-3.jpg"
+                    alt="Utsav Poudel working at health camp"
+                >
+
+                <div class="camp-overlay">
+
+                    <h3>
+                        Medicine Beyond Books
+                    </h3>
+
+                    <p>
+                        Every experience teaches something.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FULL JOURNEY
+===================================================== -->
+
+<section class="timeline-section medical-bg">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-tag">
+                My Journey
+            </div>
+
+            <h2>
+                From Pokhara to MBBS.
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    Childhood
+                </div>
+
+                <h3>
+                    The dream begins
+                </h3>
+
+                <p>
+                    Frequent childhood illnesses and hospital visits in
+                    Pokhara introduced Utsav to doctors and the idea of
+                    medicine.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    Early Schooling
+                </div>
+
+                <h3>
+                    Damauli
+                </h3>
+
+                <p>
+                    Began schooling at Barahi School, later moved to Babylon
+                    Montessori and Damauli Future Star.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    Chitwan
+                </div>
+
+                <h3>
+                    Greenland Public School
+                </h3>
+
+                <p>
+                    Continued education in Chitwan until Class 7 after the
+                    family moved to Bharatpur.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    Classes 8–10
+                </div>
+
+                <h3>
+                    Narayani Model Secondary School
+                </h3>
+
+                <p>
+                    Strong BLE and SEE results became a major confidence
+                    boost and proved that ambitious goals were possible.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    +2
+                </div>
+
+                <h3>
+                    Aroma College
+                </h3>
+
+                <p>
+                    Completed +2 in Bioscience and began preparing seriously
+                    for medical entrance.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    CEE 2025
+                </div>
+
+                <h3>
+                    First Attempt
+                </h3>
+
+                <p>
+                    Achieved MBBS Rank 106 and BDS Rank 09 and earned the
+                    opportunity to pursue MBBS on scholarship.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-year">
+                    Today
+                </div>
+
+                <h3>
+                    2nd Year MBBS
+                </h3>
+
+                <p>
+                    Continuing the journey through medical education while
+                    creating content and mentoring students.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CEE ACHIEVEMENT
+===================================================== -->
+
+<section class="achievement medical-bg">
+
+    <div class="section-container">
+
+        <div class="achievement-grid">
+
+            <div>
+
+                <div class="section-tag">
+                    CEE 2025
+                </div>
+
+                <h2>
+                    First attempt.<br>
+                    MBBS scholarship.
+                </h2>
+
+                <p>
+                    Utsav cracked CEE 2025 without joining a conventional
+                    physical entrance-preparation institute.
+                </p>
+
+                <p>
+                    His preparation relied heavily on self-study, online
+                    resources, mock tests, private lectures and analysis
+                    of his own mistakes.
+                </p>
+
+                <p>
+                    The result was not simply a rank. It was the first
+                    major step toward a dream that began in childhood.
+                </p>
+
+
+                <div class="rank-boxes">
+
+                    <div class="rank-box">
+
+                        <div class="rank-number">
+                            106
+                        </div>
+
+                        <div class="rank-label">
+                            MBBS Rank
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank-box">
+
+                        <div class="rank-number">
+                            09
+                        </div>
+
+                        <div class="rank-label">
+                            BDS Rank
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="achievement-photo">
+
+                <img
+                    src="white-coat.jpg"
+                    alt="Utsav Poudel"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MEDRACE
+===================================================== -->
+
+<section class="medrace medical-bg">
+
+    <div class="section-container">
+
+        <div class="medrace-card">
+
+            <div>
+
+                <div class="section-tag">
+                    Mentorship
+                </div>
+
+                <h2>
+                    MedRace Nepal
+                </h2>
+
+                <p>
+                    Utsav is involved with MedRace Nepal, a student-focused
+                    mentorship initiative supporting competitive medical
+                    entrance preparation.
+                </p>
+
+                <p>
+                    Through mentorship, practical guidance and resources,
+                    the goal is to make preparation more structured and
+                    less confusing.
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20I%20would%20like%20to%20know%20more%20about%20CEE%20mentorship."
+                target="_blank"
+                class="btn btn-primary"
+            >
+                Ask About Mentorship
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIFE BEYOND MBBS
+     8 PHOTOS: PLACES + SOME UTSAV PHOTOS
+===================================================== -->
+
+<section class="life medical-bg" id="life">
+
+    <div class="section-container">
+
+        <div class="life-heading">
+
+            <div class="section-tag">
+                Life Beyond MBBS
+            </div>
+
+            <h2 class="section-heading" style="margin-bottom:15px;">
+                Medicine is a big part of my life. It isn't all of it.
+            </h2>
+
+            <p>
+                Outside lectures, examinations and hospital life, there
+                is still a person who enjoys travelling, discovering new
+                places and collecting experiences.
+            </p>
+
+        </div>
+
+
+        <div class="travel-gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-1.jpg"
+                    alt="Scenic travel destination"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-2.jpg"
+                    alt="Utsav Poudel travelling"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-3.jpg"
+                    alt="Beautiful travel destination"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 4 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-4.jpg"
+                    alt="Utsav Poudel exploring a new place"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 5 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-5.jpg"
+                    alt="Mountain and travel scenery"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 6 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-6.jpg"
+                    alt="Utsav Poudel during a trip"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 7 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-7.jpg"
+                    alt="Scenic place visited during travel"
+                >
+
+            </div>
+
+
+            <!-- PHOTO 8 -->
+
+            <div class="travel-card">
+
+                <img
+                    src="travel-8.jpg"
+                    alt="Travel destination and scenery"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <div class="life-note">
+
+            A little travel. A little adventure. A life beyond textbooks. 🌍
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ASK UTSAV
+===================================================== -->
+
+<section class="ask medical-bg" id="ask">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-tag">
+                Daily Content
+            </div>
+
+            <h2>
+                Ask Utsav.
+            </h2>
+
+            <p>
+                Have a question? Ask about CEE, NEB, MBBS,
+                study strategies or student life.
+            </p>
+
+        </div>
+
+
+        <div class="ask-box">
+
+            <h3>
+                What would you like to ask?
+            </h3>
+
+
+            <div class="question-categories">
+
+                <button class="category"
+                        onclick="selectCategory(this)">
+                    CEE
+                </button>
+
+                <button class="category"
+                        onclick="selectCategory(this)">
+                    NEB
+                </button>
+
+                <button class="category"
+                        onclick="selectCategory(this)">
+                    MBBS
+                </button>
+
+                <button class="category"
+                        onclick="selectCategory(this)">
+                    Study Strategy
+                </button>
+
+                <button class="category"
+                        onclick="selectCategory(this)">
+                    Student Life
+                </button>
+
+            </div>
+
+
+            <textarea
+                id="question"
+                class="question-input"
+                placeholder="Write your question here..."
+            ></textarea>
+
+
+            <button
+                class="btn btn-primary send-question"
+                onclick="sendQuestion()"
+            >
+                Send Question on WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOCIAL MEDIA
+===================================================== -->
+
+<section class="socials medical-bg">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-tag">
+                Follow The Journey
+            </div>
+
+            <h2>
+                Stay connected.
+            </h2>
+
+            <p>
+                Follow Utsav for educational content, medical student life,
+                daily experiences and everything happening beyond the classroom.
+            </p>
+
+        </div>
+
+
+        <div class="social-grid">
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    📸
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    Follow @utsav_pdl_3 for personal updates,
+                    photos, travel and everyday moments.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/utsav_pdl_3/"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    Follow on Instagram
+                </a>
+
+            </div>
+
+
+            <!-- YOUTUBE -->
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    ▶️
+                </div>
+
+                <h3>
+                    YouTube
+                </h3>
+
+                <p>
+                    CEE preparation, NEB guidance, study strategies,
+                    MBBS life and educational content.
+                </p>
+
+                <a
+                    href="https://youtube.com/@utsavpoudel_medico?si=5vAmOZDlvbTPe_l9"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    Visit YouTube
+                </a>
+
+            </div>
+
+
+            <!-- FACEBOOK -->
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    f
+                </div>
+
+                <h3>
+                    Facebook
+                </h3>
+
+                <p>
+                    Follow Utsav on Facebook for updates,
+                    educational posts and announcements.
+                </p>
+
+                <a
+                    href="https://www.facebook.com/share/1cVG7G4YAY/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Follow on Facebook
+                </a>
+
+            </div>
+
+
+            <!-- LINKEDIN -->
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    in
+                </div>
+
+                <h3>
+                    LinkedIn
+                </h3>
+
+                <p>
+                    Connect with Utsav on LinkedIn for
+                    professional updates and opportunities.
+                </p>
+
+                <a
+                    href="https://www.linkedin.com/in/utsav-poudel-067278351"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Connect on LinkedIn
+                </a>
+
+            </div>
+
+
+            <!-- TIKTOK -->
+
+            <div class="social-card">
+
+                <div class="social-icon">
+                    ♪
+                </div>
+
+                <h3>
+                    TikTok
+                </h3>
+
+                <p>
+                    Follow Utsav on TikTok for short-form
+                    medical education and student-life content.
+                </p>
+
+                <a
+                    href="https://www.tiktok.com/@utsav_poudel_medico"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Follow on TikTok
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DAILY MCQs
+===================================================== -->
+
+<section class="medical-bg" id="mcqs" style="background:#ffffff;">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-tag">
+                Daily Practice
+            </div>
+
+            <h2>
+                Daily MCQs
+            </h2>
+
+        </div>
+
+        <div id="mcqList" class="mcq-list"></div>
+
+        <div style="text-align:center;margin-top:25px;">
+
+            <button
+                class="btn btn-primary"
+                onclick="checkDailyMCQs()"
+            >
+                Check Answers
+            </button>
+
+            <button
+                class="btn btn-outline"
+                onclick="toggleMCQEditor()"
+            >
+                Edit Today's MCQs
+            </button>
+
+        </div>
+
+        <div
+            id="mcqResult"
+            style="text-align:center;margin-top:20px;color:var(--teal);font-weight:700;"
+        ></div>
+
+        <div
+            id="mcqEditor"
+            style="display:none;margin:35px auto 0;max-width:900px;background:white;border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:var(--shadow);"
+        >
+
+            <h3 style="color:var(--navy);margin-bottom:10px;">
+                Update Today's MCQs
+            </h3>
+
+            <div id="editorFields"></div>
+
+            <button
+                class="btn btn-primary"
+                onclick="saveMCQs()"
+            >
+                Save MCQs
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAID PROMOTIONS & BRAND COLLABORATIONS
+===================================================== -->
+
+<section
+    class="medical-bg"
+    id="collaborations"
+    style="background:#f3fafb;"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-tag">
+                Work With Me
+            </div>
+
+            <h2>
+                Paid Promotions & Brand Collaborations
+            </h2>
+
+        </div>
+
+        <div
+            style="max-width:850px;margin:auto;background:white;border:1px solid var(--border);border-radius:24px;padding:40px;text-align:center;box-shadow:var(--shadow);"
+        >
+
+            <p style="color:var(--muted);margin-bottom:15px;">
+                Interested in collaborating with me or promoting your brand,
+                product, service, or educational platform?
+            </p>
+
+            <p style="color:var(--muted);margin-bottom:15px;">
+                I’m open to paid promotions, brand partnerships, sponsored
+                content, and relevant collaborations that align with my
+                audience and values.
+            </p>
+
+            <p style="color:var(--muted);margin-bottom:25px;">
+                For business inquiries and collaboration opportunities,
+                please get in touch using the contact details below.
+            </p>
+
+            <a href="#contact" class="btn btn-primary">
+                Business Inquiries
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="contact medical-bg" id="contact">
+
+    <div class="section-container">
+
+        <div class="contact-grid">
+
+
+            <div class="contact-text">
+
+                <div class="section-tag">
+                    Get In Touch
+                </div>
+
+                <h2>
+                    Have something to ask?
+                </h2>
+
+                <p>
+                    Whether you are preparing for CEE, curious about
+                    MBBS life, interested in mentorship or simply want
+                    to say hello — feel free to reach out.
+                </p>
+
+                <p style="margin-top:18px;">
+                    I’m always open to meaningful collaborations that provide
+                    genuine value to students and the wider community.
+                    For business inquiries, paid promotions, collaborations,
+                    sponsorships, media inquiries and professional opportunities,
+                    please mention the purpose of your message and include
+                    any relevant details.
+                </p>
+
+                <p style="margin-top:18px;color:var(--muted);">
+
+                    <strong>Business & Collaboration Inquiries:</strong>
+
+                    <br>
+
+                    <a
+                        href="mailto:helputsavpoudel64@gmail.com"
+                        style="color:var(--teal);"
+                    >
+                        helputsavpoudel64@gmail.com
+                    </a>
+
+                    <br><br>
+
+                    <strong>My Location:</strong>
+
+                    Nepal
+
+                </p>
+
+            </div>
+
+
+            <div class="contact-options">
+
+
+                <a
+                    class="contact-button"
+                    href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20can%20you%20help%20me%20prepare%20for%20CEE%3F"
+                    target="_blank"
+                >
+
+                    <span class="contact-icon">
+                        💬
+                    </span>
+
+                    CEE Preparation
+
+                </a>
+
+
+                <a
+                    class="contact-button"
+                    href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20I%20have%20a%20question%20about%20MBBS."
+                    target="_blank"
+                >
+
+                    <span class="contact-icon">
+                        🩺
+                    </span>
+
+                    Ask About MBBS
+
+                </a>
+
+
+                <a
+                    class="contact-button"
+                    href="https://wa.me/9779863372746?text=Hello%20Utsav%2C%20I%20want%20to%20know%20about%20your%20scholarship%20journey."
+                    target="_blank"
+                >
+
+                    <span class="contact-icon">
+                        🎓
+                    </span>
+
+                    Scholarship Journey
+
+                </a>
+
+
+                <a
+                    class="contact-button"
+                    href="mailto:helputsavpoudel64@gmail.com"
+                >
+
+                    <span class="contact-icon">
+                        ✉️
+                    </span>
+
+                    Email Utsav
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+
+            <div class="footer-logo">
+                Utsav<span>.</span>
+            </div>
+
+            <div class="footer-small">
+                2nd Year MBBS Student • Medical Education • CEE Mentor
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#story">
+                Story
+            </a>
+
+            <a href="#prepare">
+                CEE
+            </a>
+
+            <a href="#camp">
+                Health Camp
+            </a>
+
+            <a href="#life">
+                Life
+            </a>
+
+            <a href="#ask">
+                Ask Utsav
+            </a>
+
+            <a href="https://www.instagram.com/utsav_pdl_3/"
+               target="_blank">
+                Instagram
+            </a>
+
+            <a href="#mcqs">
+                Daily MCQs
+            </a>
+
+            <a href="#collaborations">
+                Collaborate
+            </a>
+
+            <a
+                href="https://www.facebook.com/share/1cVG7G4YAY/?mibextid=wwXIfr"
+                target="_blank"
+            >
+                Facebook
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/utsav-poudel-067278351"
+                target="_blank"
+            >
+                LinkedIn
+            </a>
+
+            <a
+                href="https://www.tiktok.com/@utsav_poudel_medico"
+                target="_blank"
+            >
+                TikTok
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu() {
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+
+}
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            document
+                .getElementById("navLinks")
+                .classList.remove("active");
+
+        });
+
+    });
+
+
+
+/* =========================================================
+   ACCORDION
+========================================================= */
+
+document
+    .querySelectorAll(".accordion-header")
+    .forEach(function(header) {
+
+        header.addEventListener("click", function() {
+
+            const content =
+                this.nextElementSibling;
+
+            const icon =
+                this.querySelector(".accordion-icon");
+
+
+            document
+                .querySelectorAll(".accordion-content")
+                .forEach(function(item) {
+
+                    if (item !== content) {
+                        item.classList.remove("active");
+                    }
+
+                });
+
+
+            document
+                .querySelectorAll(".accordion-icon")
+                .forEach(function(item) {
+
+                    if (item !== icon) {
+                        item.textContent = "+";
+                    }
+
+                });
+
+
+            content.classList.toggle("active");
+
+
+            if (content.classList.contains("active")) {
+
+                icon.textContent = "−";
+
+            } else {
+
+                icon.textContent = "+";
+
+            }
+
+        });
+
+    });
+
+
+
+/* =========================================================
+   QUESTION CATEGORY
+========================================================= */
+
+let selectedCategory = "";
+
+
+function selectCategory(button) {
+
+    document
+        .querySelectorAll(".category")
+        .forEach(function(item) {
+
+            item.classList.remove("selected");
+
+        });
+
+
+    button.classList.add("selected");
+
+    selectedCategory = button.textContent.trim();
+
+}
+
+
+
+/* =========================================================
+   SEND QUESTION TO WHATSAPP
+========================================================= */
+
+function sendQuestion() {
+
+    const question =
+        document.getElementById("question").value.trim();
+
+
+    if (question === "") {
+
+        alert("Please write your question first.");
+
+        return;
+
+    }
+
+
+    let message =
+        "Hello Utsav!%0A%0A";
+
+
+    if (selectedCategory !== "") {
+
+        message +=
+            "Category: " +
+            encodeURIComponent(selectedCategory) +
+            "%0A%0A";
+
+    }
+
+
+    message +=
+        "My question:%0A" +
+        encodeURIComponent(question);
+
+
+    const whatsappURL =
+        "https://wa.me/9779863372746?text=" +
+        message;
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+
+/* =========================================================
+   DAILY MCQs
+========================================================= */
+
+const defaultMCQs = [
+    {
+        q: "Which organelle is known as the powerhouse of the cell?",
+        options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
+        answer: 1
+    },
+    {
+        q: "What is the approximate normal pH of human blood?",
+        options: ["5.5", "6.5", "7.4", "8.5"],
+        answer: 2
+    },
+    {
+        q: "Which vitamin is mainly produced in the skin after sunlight exposure?",
+        options: ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
+        answer: 3
+    },
+    {
+        q: "Which blood cells primarily fight infections?",
+        options: ["Red blood cells", "White blood cells", "Platelets", "Plasma"],
+        answer: 1
+    },
+    {
+        q: "Which molecule carries genetic information in most living organisms?",
+        options: ["ATP", "Protein", "DNA", "Glucose"],
+        answer: 2
+    }
+];
+
+let dailyMCQs =
+    JSON.parse(localStorage.getItem("utsavDailyMCQs")) || defaultMCQs;
+
+
+function renderMCQs() {
+
+    const list = document.getElementById("mcqList");
+
+    list.innerHTML = dailyMCQs.map((item, i) => `
+
+        <div class="mcq-card">
+
+            <h3>
+                ${i + 1}. ${item.q}
+            </h3>
+
+            ${item.options.map((op, j) => `
+
+                <label class="mcq-option">
+
+                    <input
+                        type="radio"
+                        name="dailyq${i}"
+                        value="${j}"
+                    >
+
+                    ${String.fromCharCode(65 + j)}. ${op}
+
+                </label>
+
+            `).join("")}
+
+        </div>
+
+    `).join("");
+}
+
+
+function checkDailyMCQs() {
+
+    let score = 0;
+
+    dailyMCQs.forEach((item, i) => {
+
+        const selected =
+            document.querySelector(
+                `input[name="dailyq${i}"]:checked`
+            );
+
+        if (
+            selected &&
+            Number(selected.value) === item.answer
+        ) {
+            score++;
+        }
+
+    });
+
+    document.getElementById("mcqResult").textContent =
+        `You scored ${score}/${dailyMCQs.length}.`;
+}
+
+
+function toggleMCQEditor() {
+
+    const editor = document.getElementById("mcqEditor");
+
+    editor.style.display =
+        editor.style.display === "none"
+        ? "block"
+        : "none";
+
+    if (editor.style.display === "block") {
+        renderEditor();
+    }
+}
+
+
+function renderEditor() {
+
+    document.getElementById("editorFields").innerHTML =
+        dailyMCQs.map((item, i) => `
+
+            <div class="mcq-editor-field">
+
+                <strong>
+                    Question ${i + 1}
+                </strong>
+
+                <textarea
+                    id="editq${i}"
+                    rows="2"
+                >${item.q}</textarea>
+
+                ${item.options.map((op, j) => `
+
+                    <input
+                        id="edito${i}_${j}"
+                        value="${op.replace(/"/g, '&quot;')}"
+                    >
+
+                `).join("")}
+
+                <select id="edita${i}">
+
+                    ${item.options.map((op, j) => `
+
+                        <option
+                            value="${j}"
+                            ${j === item.answer ? "selected" : ""}
+                        >
+                            Correct answer:
+                            ${String.fromCharCode(65 + j)}
+                        </option>
+
+                    `).join("")}
+
+                </select>
+
+            </div>
+
+        `).join("");
+}
+
+
+function saveMCQs() {
+
+    dailyMCQs = dailyMCQs.map((item, i) => ({
+
+        q:
+            document.getElementById(`editq${i}`).value,
+
+        options:
+            item.options.map((_, j) =>
+                document.getElementById(`edito${i}_${j}`).value
+            ),
+
+        answer:
+            Number(
+                document.getElementById(`edita${i}`).value
+            )
+
+    }));
+
+    localStorage.setItem(
+        "utsavDailyMCQs",
+        JSON.stringify(dailyMCQs)
+    );
+
+    renderMCQs();
+
+    document.getElementById("mcqEditor").style.display =
+        "none";
+
+    document.getElementById("mcqResult").textContent =
+        "Today's MCQs saved on this browser.";
+}
+
+
+/* Render MCQs when page loads */
+
+renderMCQs();
+
+</script>
+
+
+</body>
+</html>
